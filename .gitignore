@@ -87,3 +87,7 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Ignore datasets
+research/enwiki_processed
+research/enwiki-latest-pages-articles.xml.bz2
