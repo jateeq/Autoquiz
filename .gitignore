@@ -91,3 +91,6 @@ ENV/
 # Ignore datasets
 research/enwiki_processed
 research/enwiki-latest-pages-articles.xml.bz2
+
+# Django files
+db.sqlite3
