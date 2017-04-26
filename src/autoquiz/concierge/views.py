@@ -13,7 +13,7 @@ def getTargetDoc(request):
 	if request.method == "POST":
 		form = TargetDocumentForm(request.POST)
 		#return render(request, 'concierge/thanks.html', None)
-		showResults(request)
+		return showResults(request)
 	else:
 		form = TargetDocumentForm
 
