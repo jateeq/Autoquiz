@@ -1,9 +1,17 @@
 {% extends 'concierge/base.html' %}
 
 {% block body_block1 %}
-	<form action='/getTargetDoc' method='POST'>
-		{% csrf_token %}
-		{{ form }}
-		<input type='submit' value='Summarize' />
-	</form>
+
+	<div class='row'>
+		<h1>Input Document</h1>
+	</div>
+
+	<div class='row'>
+		<form action='/getTargetDoc' method='POST'>
+			{% csrf_token %}
+			{{ form }}
+			<input type='submit' value='Summarize' />
+		</form>
+	</div>
+
 {% endblock %}
