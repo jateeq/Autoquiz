@@ -9,17 +9,15 @@
 		devices/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="stylesheet" href="{% static 
-		'concierge/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static '/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css' %}">
 	</head>
 
 	<title>Autoquiz</title>
 
 	<body>
 		<div class="container">
-			<h1>BOOTSTRAP</h1>
+			{% block body_block1 %} Something went wrong! {% endblock %}
 		</div>
-		{% block body_block1 %} Something went wrong! {% endblock %}
 	</body>
 
 </html>
