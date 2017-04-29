@@ -12,16 +12,17 @@ def index(request):
 def getTargetDoc(request):
 	if request.method == "POST":
 		form = TargetDocumentForm(request.POST)
-		#return render(request, 'concierge/thanks.html', None)
-		return showResults(request)
+		if(form.is_valid()):
+			target_doc = form.cleaned_data['target_doc']	
+			#return render(request, 'concierge/thanks.html', None)
+			return showResults(request, target_doc)
 	else:
 		form = TargetDocumentForm
 
 	context = {'form':form}
 	return render(request, 'concierge/getTargetDoc.html', context)
 
-def showResults(request):
-	results = [1, 2, 3]
+def showResults(request, results):
 	context = {'results':results}
 	return render(request, 'concierge/showResults.html', context)
 
