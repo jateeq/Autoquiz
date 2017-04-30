@@ -2,15 +2,19 @@
 
 {% block body_block1 %}
 
-	<div class='row'>
-		<h1>Input Document</h1>
-	</div>
-
-	<div class='row'>
+	<div>
 		<form action='/getTargetDoc' method='POST'>
 			{% csrf_token %}
-			{{ form }}
-			<input type='submit' value='Summarize' />
+
+			<div class='form-group'>
+				<!--{{ form }}-->
+				<textarea class='form-control' rows='25' placeholder='Enter your input here'></textarea>
+			</div>
+
+			<div class='form-group'>
+				<button class='btn btn-success' type='submit'>Summarize</button>
+			</div>
+
 		</form>
 	</div>
 
