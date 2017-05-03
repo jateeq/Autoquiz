@@ -27,3 +27,5 @@ def showResults(request, results):
 	context = {'results':results}
 	return render(request, 'concierge/showResults.html', context)
 
+def about(request):
+	return render(request, 'concierge/about.html', None)
