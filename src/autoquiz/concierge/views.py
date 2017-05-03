@@ -7,7 +7,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .forms import TargetDocumentForm
 
 def index(request):
-	return render(request, 'concierge/index.html', None)
+	return getTargetDoc(request)
+	#return render(request, 'concierge/getTargetDoc.html', None)
 
 def getTargetDoc(request):
 	if request.method == "POST":
