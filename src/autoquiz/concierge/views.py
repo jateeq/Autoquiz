@@ -7,15 +7,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .forms import TargetDocumentForm
 
 def index(request):
-	return getTargetDoc(request)
-	#return render(request, 'concierge/getTargetDoc.html', None)
-
-def getTargetDoc(request):
 	if request.method == "POST":
 		form = TargetDocumentForm(request.POST)
 		if(form.is_valid()):
 			target_doc = form.cleaned_data['target_doc']	
-			#return render(request, 'concierge/thanks.html', None)
 			return showResults(request, target_doc)
 	else:
 		form = TargetDocumentForm
