@@ -1,26 +1,34 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+import logging
 
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.views.decorators.http import require_GET, require_http_methods
 
 from .forms import TargetDocumentForm
 
-def index(request):
-	if request.method == "POST":
-		form = TargetDocumentForm(request.POST)
-		if(form.is_valid()):
-			target_doc = form.cleaned_data['target_doc']	
-			return showResults(request, target_doc)
-	else:
-		form = TargetDocumentForm
+logger = logging.getLogger(__name__)
 
-	context = {'form':form}
-	return render(request, 'concierge/getTargetDoc.html', context)
 
-def showResults(request, results):
-	context = {'results':results}
-	return render(request, 'concierge/showResults.html', context)
+@require_http_methods(["GET", "POST"])
+def index(request: HttpRequest) -> HttpResponse:
+    """Accept a document and render the results page.
 
-def about(request):
-	return render(request, 'concierge/about.html', None)
+    The key-concept extraction step has not been implemented yet, so the results page
+    currently echoes the submitted text back to the user.
+    """
+    if request.method == "POST":
+        form = TargetDocumentForm(request.POST)
+        if form.is_valid():
+            target_doc = form.cleaned_data["target_doc"]
+            logger.info("Received document of %d characters", len(target_doc))
+            return render(request, "concierge/results.html", {"results": target_doc})
+        logger.info("Rejected document submission: %s", form.errors.as_json())
+    else:
+        form = TargetDocumentForm()
+
+    return render(request, "concierge/index.html", {"form": form})
+
+
+@require_GET
+def about(request: HttpRequest) -> HttpResponse:
+    return render(request, "concierge/about.html")

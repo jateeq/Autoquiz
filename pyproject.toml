@@ -1,0 +1,26 @@
+[project]
+name = "autoquiz"
+version = "0.1.0"
+description = "Generate flashcards from the key concepts in a body of text."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django>=5.2,<6.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.17",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src/autoquiz"]
+extend-exclude = ["research"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "DJ", "SIM"]

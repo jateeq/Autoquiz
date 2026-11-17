@@ -1,15 +1,19 @@
 {% extends 'concierge/base.html' %}
 
-{% block body_block1 %}
-	<div>
-		Autoquiz is a tool I wish I had. It is amazing how much information we lose over time if
-		we don't use it. Ever read a book only to forget the deets the next day? I do, <i>all</i> the 
-		time. <a href="https://en.wikipedia.org/wiki/Flashcard"> Flashcards </a> are a great tool to help 
-		retention, and I've used them previously in my readings to good use. But they're also a lot of 
-		work to create, especially if the book you're reading is a 300 page book on Algorithm Design. 
+{% block title %}About · Autoquiz{% endblock %}
 
-		Autoquiz is a tool that summarizes key concepts in a body of text, and generates a set of 
-		flashcards you can use to test yourself later. 
-
-	</div>
+{% block content %}
+  <h1 class="h3 mb-3">About</h1>
+  <p>
+    Autoquiz is a tool I wish I had. It is amazing how much information we lose over time if
+    we don't use it. Ever read a book only to forget the details the next day? I do,
+    <em>all</em> the time.
+    <a href="https://en.wikipedia.org/wiki/Flashcard">Flashcards</a> are a great tool to help
+    retention, and I've used them in my reading to good effect. But they're also a lot of work
+    to create, especially if the book you're reading is a 300-page book on algorithm design.
+  </p>
+  <p class="mb-0">
+    Autoquiz summarizes the key concepts in a body of text and generates a set of flashcards
+    you can use to test yourself later.
+  </p>
 {% endblock %}
