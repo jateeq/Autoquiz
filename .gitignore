@@ -94,3 +94,9 @@ research/enwiki-latest-pages-articles.xml.bz2
 
 # Django files
 db.sqlite3
+
+# uv
+.venv/
+
+# Django collectstatic output
+staticfiles/

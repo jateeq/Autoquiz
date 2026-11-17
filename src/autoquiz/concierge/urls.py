@@ -1,8 +1,10 @@
-from django.conf.urls import include, url
+from django.urls import path
 
 from . import views
 
+app_name = "concierge"
+
 urlpatterns = [
-	url(r'^$', views.index, name='index'),
-	url(r'^about$', views.about, name='about')
+    path("", views.index, name="index"),
+    path("about/", views.about, name="about"),
 ]

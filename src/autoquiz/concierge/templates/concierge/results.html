@@ -1,0 +1,17 @@
+{% extends 'concierge/base.html' %}
+
+{% block title %}Results · Autoquiz{% endblock %}
+
+{% block content %}
+  <h1 class="h3 mb-3">Results</h1>
+
+  <div class="alert alert-info" role="status">
+    Key-concept extraction is not implemented yet, so this page shows the submitted text unchanged.
+  </div>
+
+  <div class="card card-body shadow-sm mb-4">
+    <p class="mb-0" style="white-space: pre-wrap;">{{ results }}</p>
+  </div>
+
+  <a class="btn btn-outline-secondary" href="{% url 'concierge:index' %}">Back</a>
+{% endblock %}
